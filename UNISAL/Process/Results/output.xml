@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-18T19:58:52.334914" rpa="false" schemaversion="5">
+<suite id="s1" name="Process" source="C:\Users\lab4h.ADMIN\Documents\UNISAL\Process\process.robot">
+<test id="s1-t1" name="Exemplo 03: Execute comandos de prompt" line="15">
+<kw name="Executando comandos diversos de prompt">
+<kw name="Run Process" owner="Process">
+<msg time="2024-04-18T19:58:52.371892" level="INFO">Starting process:
+mkdir robot_teste</msg>
+<msg time="2024-04-18T19:58:52.384885" level="INFO">Waiting for process to complete.</msg>
+<msg time="2024-04-18T19:58:52.406882" level="INFO">Process completed.</msg>
+<arg>mkdir robot_teste</arg>
+<arg>cwd=C:\\Users\\lab4h.ADMIN\\Documents\\UNISAL\\Process</arg>
+<arg>shell=True</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2024-04-18T19:58:52.370893" elapsed="0.035989"/>
+</kw>
+<status status="PASS" start="2024-04-18T19:58:52.370893" elapsed="0.036979"/>
+</kw>
+<tag>teste3</tag>
+<status status="PASS" start="2024-04-18T19:58:52.368904" elapsed="0.038968"/>
+</test>
+<doc>http://robotframework.org/robotframework/latest/libraries/Process.html</doc>
+<status status="PASS" start="2024-04-18T19:58:52.336913" elapsed="0.071958"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">teste3</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Process">Process</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-04-11T20:21:52.562007" rpa="false" schemaversion="5">
+<suite id="s1" name="Headers Params Auth" source="C:\Users\lab4h.ADMIN\Documents\UNISAL\Git\APIadvanced\headers_params_auth.robot">
+<test id="s1-t1" name="Exemplo: Usando parâmetros" line="26">
+<kw name="Conectar com autenticação básica na API do GitHub">
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-04-11T20:21:52.761922" level="INFO">${AUTH} = ['fcarloss.unisal@gmail.com', 'S@n77tos']</msg>
+<var>${AUTH}</var>
+<arg>${MY_GITHUB_USER}</arg>
+<arg>${MY_GITHUB_PASS}</arg>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-04-11T20:21:52.760924" elapsed="0.000998"/>
+</kw>
+<kw name="Create Session" owner="RequestsLibrary">
+<msg time="2024-04-11T20:21:52.761922" level="INFO">Creating Session using : alias=mygithubAuth, url=https://api.github.com, headers={'Content-Type': 'application/json', 'Authorization': 'Basic ABCDEF=='},                     cookies={}, auth=&lt;requests.auth.HTTPBasicAuth object at 0x0000021672EA9580&gt;, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<arg>alias=mygithubAuth</arg>
+<arg>url=${GITHUB_HOST}</arg>
+<arg>headers=${headers}</arg>
+<arg>auth=${AUTH}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<status status="PASS" start="2024-04-11T20:21:52.761922" elapsed="0.000000"/>
+</kw>
+<status status="PASS" start="2024-04-11T20:21:52.760924" elapsed="0.000998"/>
+</kw>
+<kw name="Pesquisar issues com o state &quot;open&quot; e com o label &quot;bug&quot;" source_name="Pesquisar issues com o state &quot;${STATE}&quot; e com o label &quot;${LABEL}&quot;">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-04-11T20:21:52.763923" level="INFO">&amp;{PARAMS} = { state=open | labels=bug }</msg>
+<var>&amp;{PARAMS}</var>
+<arg>state=${STATE}</arg>
+<arg>labels=${LABEL}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-04-11T20:21:52.762912" elapsed="0.001011"/>
+</kw>
+<kw name="GET On Session" owner="RequestsLibrary">
+<msg time="2024-04-11T20:21:52.960783" level="INFO">GET Request : url=https://api.github.com/?state=open&amp;labels=bug 
+ path_url=/?state=open&amp;labels=bug 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Type': 'application/json', 'Authorization': 'Basic ZmNhcmxvc3MudW5pc2FsQGdtYWlsLmNvbTpTQG43N3Rvcw=='} 
+ body=None 
+ </msg>
+<msg time="2024-04-11T20:21:52.960783" level="INFO">GET Response : url=https://api.github.com/?state=open&amp;labels=bug 
+ status=200, reason=OK 
+ headers={'Server': 'GitHub.com', 'Date': 'Thu, 11 Apr 2024 23:21:52 GMT', 'Content-Type': 'application/json; charset=utf-8', 'Transfer-Encoding': 'chunked', 'Cache-Control': 'public, max-age=60, s-maxage=60', 'Vary': 'Accept, Accept-Encoding, Accept, X-Requested-With', 'ETag': 'W/"4f825cc84e1c733059d46e76e6df9db557ae5254f9625dfe8e1b09499c449438"', 'X-GitHub-Media-Type': 'github.v3; format=json', 'x-github-api-version-selected': '2022-11-28', 'X-RateLimit-Limit': '60', 'X-RateLimit-Remaining': '49', 'X-RateLimit-Reset': '1712878378', 'X-RateLimit-Used': '11', 'X-RateLimit-Resource': 'core', 'Access-Control-Expose-Headers': 'ETag, Link, Location, Retry-After, X-GitHub-OTP, X-RateLimit-Limit, X-RateLimit-Remaining, X-RateLimit-Used, X-RateLimit-Resource, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval, X-GitHub-Media-Type, X-GitHub-SSO, X-GitHub-Request-Id, Deprecation, Sunset', 'Access-Control-Allow-Origin': '*', 'Strict-Transport-Security': 'max-age=31536000; includeSubdomains; preload', 'X-Frame-Options': 'deny', 'X-Content-Type-Options': 'nosniff', 'X-XSS-Protection': '0', 'Referrer-Policy': 'origin-when-cross-origin, strict-origin-when-cross-origin', 'Content-Security-Policy': "default-src 'none'", 'Content-Encoding': 'gzip', 'X-GitHub-Request-Id': '7D2E:2B4AF5:5711126:58281DC:66187090'} 
+ body={"current_user_url":"https://api.github.com/user","current_user_authorizations_html_url":"https://github.com/settings/connections/applications{/client_id}","authorizations_url":"https://api.github.com/authorizations","code_search_url":"https://api.github.com/search/code?q={query}{&amp;page,per_page,sort,order}","commit_search_url":"https://api.github.com/search/commits?q={query}{&amp;page,per_page,sort,order}","emails_url":"https://api.github.com/user/emails","emojis_url":"https://api.github.com/emojis","events_url":"https://api.github.com/events","feeds_url":"https://api.github.com/feeds","followers_url":"https://api.github.com/user/followers","following_url":"https://api.github.com/user/following{/target}","gists_url":"https://api.github.com/gists{/gist_id}","hub_url":"https://api.github.com/hub","issue_search_url":"https://api.github.com/search/issues?q={query}{&amp;page,per_page,sort,order}","issues_url":"https://api.github.com/issues","keys_url":"https://api.github.com/user/keys","label_search_url":"https://api.github.com/search/labels?q={query}&amp;repository_id={repository_id}{&amp;page,per_page}","notifications_url":"https://api.github.com/notifications","organization_url":"https://api.github.com/orgs/{org}","organization_repositories_url":"https://api.github.com/orgs/{org}/repos{?type,page,per_page,sort}","organization_teams_url":"https://api.github.com/orgs/{org}/teams","public_gists_url":"https://api.github.com/gists/public","rate_limit_url":"https://api.github.com/rate_limit","repository_url":"https://api.github.com/repos/{owner}/{repo}","repository_search_url":"https://api.github.com/search/repositories?q={query}{&amp;page,per_page,sort,order}","current_user_repositories_url":"https://api.github.com/user/repos{?type,page,per_page,sort}","starred_url":"https://api.github.com/user/starred{/owner}{/repo}","starred_gists_url":"https://api.github.com/gists/starred","topic_search_url":"https://api.github.com/search/topics?q={query}{&amp;page,per_page}","user_url":"https://api.github.com/users/{user}","user_organizations_url":"https://api.github.com/user/orgs","user_repositories_url":"https://api.github.com/users/{user}/repos{?type,page,per_page,sort}","user_search_url":"https://api.github.com/search/users?q={query}{&amp;page,per_page,sort,order}"} 
+ </msg>
+<msg time="2024-04-11T20:21:52.961783" level="INFO">C:\Users\lab4h.ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages\urllib3\connectionpool.py:1103: InsecureRequestWarning: Unverified HTTPS request is being made to host 'api.github.com'. Adding certificate verification is strongly advised. See: https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings
+  warnings.warn(</msg>
+<msg time="2024-04-11T20:21:52.962756" level="INFO">${MY_ISSUES} = &lt;Response [200]&gt;</msg>
+<var>${MY_ISSUES}</var>
+<arg>alias=mygithubAuth</arg>
+<arg>url=${GITHUB_HOST}</arg>
+<arg>params=${PARAMS}</arg>
+<doc>Sends a GET request on a previously created HTTP Session.</doc>
+<status status="PASS" start="2024-04-11T20:21:52.763923" elapsed="0.198833"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-04-11T20:21:52.965781" level="INFO">Lista de Issues: {'current_user_url': 'https://api.github.com/user', 'current_user_authorizations_html_url': 'https://github.com/settings/connections/applications{/client_id}', 'authorizations_url': 'https://api.github.com/authorizations', 'code_search_url': 'https://api.github.com/search/code?q={query}{&amp;page,per_page,sort,order}', 'commit_search_url': 'https://api.github.com/search/commits?q={query}{&amp;page,per_page,sort,order}', 'emails_url': 'https://api.github.com/user/emails', 'emojis_url': 'https://api.github.com/emojis', 'events_url': 'https://api.github.com/events', 'feeds_url': 'https://api.github.com/feeds', 'followers_url': 'https://api.github.com/user/followers', 'following_url': 'https://api.github.com/user/following{/target}', 'gists_url': 'https://api.github.com/gists{/gist_id}', 'hub_url': 'https://api.github.com/hub', 'issue_search_url': 'https://api.github.com/search/issues?q={query}{&amp;page,per_page,sort,order}', 'issues_url': 'https://api.github.com/issues', 'keys_url': 'https://api.github.com/user/keys', 'label_search_url': 'https://api.github.com/search/labels?q={query}&amp;repository_id={repository_id}{&amp;page,per_page}', 'notifications_url': 'https://api.github.com/notifications', 'organization_url': 'https://api.github.com/orgs/{org}', 'organization_repositories_url': 'https://api.github.com/orgs/{org}/repos{?type,page,per_page,sort}', 'organization_teams_url': 'https://api.github.com/orgs/{org}/teams', 'public_gists_url': 'https://api.github.com/gists/public', 'rate_limit_url': 'https://api.github.com/rate_limit', 'repository_url': 'https://api.github.com/repos/{owner}/{repo}', 'repository_search_url': 'https://api.github.com/search/repositories?q={query}{&amp;page,per_page,sort,order}', 'current_user_repositories_url': 'https://api.github.com/user/repos{?type,page,per_page,sort}', 'starred_url': 'https://api.github.com/user/starred{/owner}{/repo}', 'starred_gists_url': 'https://api.github.com/gists/starred', 'topic_search_url': 'https://api.github.com/search/topics?q={query}{&amp;page,per_page}', 'user_url': 'https://api.github.com/users/{user}', 'user_organizations_url': 'https://api.github.com/user/orgs', 'user_repositories_url': 'https://api.github.com/users/{user}/repos{?type,page,per_page,sort}', 'user_search_url': 'https://api.github.com/search/users?q={query}{&amp;page,per_page,sort,order}'}</msg>
+<arg>Lista de Issues: ${MY_ISSUES.json()}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-04-11T20:21:52.963759" elapsed="0.002022"/>
+</kw>
+<kw name="Confere sucesso na requisição">
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<arg>${RESPONSE}</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-04-11T20:21:52.966780" elapsed="0.001000"/>
+</kw>
+<arg>${MY_ISSUES}</arg>
+<status status="PASS" start="2024-04-11T20:21:52.965781" elapsed="0.001999"/>
+</kw>
+<status status="PASS" start="2024-04-11T20:21:52.762912" elapsed="0.204868"/>
+</kw>
+<tag>api3</tag>
+<status status="PASS" start="2024-04-11T20:21:52.759911" elapsed="0.208842"/>
+</test>
+<doc>Exemplos da própria Library: https://github.com/bulkan/robotframework-requests/blob/master/tests/testcase.robot
+Doc da API do GitHub: https://developer.github.com/v3/</doc>
+<status status="PASS" start="2024-04-11T20:21:52.564006" elapsed="0.407747"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="1" fail="0" skip="0">api3</stat>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Headers Params Auth">Headers Params Auth</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-04-11T20:21:52.754914" level="ERROR">Error in file 'C:\Users\lab4h.ADMIN\Documents\UNISAL\Git\APIadvanced\headers_params_auth.robot' on line 6: Importing library 'HttpLibrary.HTTP' failed: SyntaxError: multiple exception types must be parenthesized (__init__.py, line 16)
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\lab4h.ADMIN\AppData\Local\Programs\Python\Python312\Scripts\robot.exe
+  C:\Users\lab4h.ADMIN\AppData\Local\Programs\Python\Python312\python312.zip
+  C:\Users\lab4h.ADMIN\AppData\Local\Programs\Python\Python312\DLLs
+  C:\Users\lab4h.ADMIN\AppData\Local\Programs\Python\Python312\Lib
+  C:\Users\lab4h.ADMIN\AppData\Local\Programs\Python\Python312
+  C:\Users\lab4h.ADMIN\AppData\Local\Programs\Python\Python312\Lib\site-packages</msg>
+</errors>
+</robot>
